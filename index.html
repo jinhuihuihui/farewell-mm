@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farewell, MM! 🌊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<div class="sky">
+  <div class="clouds">
+    <svg viewBox="0 0 800 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="32" rx="62" ry="24" fill="rgba(255,255,255,0.82)"/>
+      <ellipse cx="135" cy="25" rx="42" ry="19" fill="rgba(255,255,255,0.82)"/>
+      <ellipse cx="68"  cy="28" rx="34" ry="15" fill="rgba(255,255,255,0.82)"/>
+      <ellipse cx="500" cy="22" rx="54" ry="20" fill="rgba(255,255,255,0.65)"/>
+      <ellipse cx="530" cy="14" rx="36" ry="16" fill="rgba(255,255,255,0.65)"/>
+      <ellipse cx="470" cy="19" rx="30" ry="13" fill="rgba(255,255,255,0.65)"/>
+      <ellipse cx="710" cy="36" rx="42" ry="16" fill="rgba(255,255,255,0.5)"/>
+      <ellipse cx="735" cy="28" rx="28" ry="13" fill="rgba(255,255,255,0.5)"/>
+    </svg>
+  </div>
+  <div class="hero-text">
+    <div class="card-subtitle">送给我们亲爱的</div>
+    <h1 class="card-title">Farewell, MM! 🌊</h1>
+    <p class="card-poem">小舟从此逝，江海度余生</p>
+  </div>
+</div>
+
+<!-- ========== OCEAN ========== -->
+<div class="ocean-scene">
+  <svg class="gull gull1" width="34" height="14" viewBox="0 0 34 14"><path d="M1 8 Q8 1 17 7 Q26 1 33 8" fill="none" stroke="#7bbcd5" stroke-width="2" stroke-linecap="round"/></svg>
+  <svg class="gull gull2" width="24" height="11" viewBox="0 0 24 11"><path d="M1 6 Q6 1 12 5 Q18 1 23 6" fill="none" stroke="#9ccde0" stroke-width="1.5" stroke-linecap="round"/></svg>
+  <div class="boat-wrap">
+    <svg width="140" height="100" viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="22,72 118,72 102,90 38,90" fill="#4a9eca"/>
+      <rect x="67" y="20" width="3.5" height="54" fill="#7a5c3a" rx="1"/>
+      <polygon points="70,22 70,62 110,44" fill="#fff" opacity="0.92"/>
+      <polygon points="70,26 70,60 36,46" fill="#ddf0ff" opacity="0.85"/>
+      <path d="M20 83 Q48 78 70 82 Q92 86 120 80" stroke="#fff" stroke-width="1.8" fill="none" opacity="0.55" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <svg class="waves" viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 40 Q60 18 120 40 Q180 62 240 40 Q300 18 360 40 Q420 62 480 40 Q540 18 600 40 Q660 62 720 40 Q780 18 840 40 Q900 62 960 40 Q1020 18 1080 40 Q1140 62 1200 40 L1200 100 L0 100Z" fill="#7bbcd5" opacity="0.35"/>
+    <path d="M0 55 Q70 33 140 55 Q210 77 280 55 Q350 33 420 55 Q490 77 560 55 Q630 33 700 55 Q770 77 840 55 Q910 33 980 55 Q1050 77 1120 55 Q1160 44 1200 55 L1200 100 L0 100Z" fill="#5aafd4" opacity="0.5"/>
+    <path d="M0 70 Q80 54 160 70 Q240 86 320 70 Q400 54 480 70 Q560 86 640 70 Q720 54 800 70 Q880 86 960 70 Q1040 54 1120 70 Q1160 62 1200 70 L1200 100 L0 100Z" fill="#3a9ac8"/>
+  </svg>
+</div>
+
+<!-- ========== AUTH BAR ========== -->
+<div class="auth-bar" id="authBar">
+  <div class="auth-inner">
+    <span class="auth-msg">请用 Shopee 邮箱登录后留言或上传照片 📸</span>
+    <div id="g_id_onload"
+         data-client_id="GOOGLE_CLIENT_ID"
+         data-callback="handleGoogleLogin"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="medium"
+         data-theme="outline"
+         data-text="signin_with"
+         data-shape="pill"
+         data-logo_alignment="left">
+    </div>
+  </div>
+</div>
+
+<div class="user-bar" id="userBar" style="display:none">
+  <div class="user-inner">
+    <img id="userAvatar" class="user-avatar" src="" alt=""/>
+    <span id="userName"></span>
+    <button class="logout-btn" onclick="logout()">登出</button>
+  </div>
+</div>
+
+<!-- ========== BOARD ========== -->
+<div class="board-wrap">
+  <div class="board" id="board">
+    <div class="board-loading" id="boardLoading">加载中... 🌸</div>
+  </div>
+</div>
+
+<!-- ========== COMPOSE ========== -->
+<div class="compose-wrap" id="composeSection" style="display:none">
+  <div class="compose-box">
+    <div class="compose-title">留下你对 MM 的祝福 ✨</div>
+
+    <div class="compose-tabs">
+      <button class="tab-btn active" onclick="switchTab('note')">📝 写留言</button>
+      <button class="tab-btn" onclick="switchTab('photo')">📸 上传照片</button>
+    </div>
+
+    <!-- Note tab -->
+    <div id="noteTab">
+      <div class="color-label">选择便利贴颜色：</div>
+      <div class="swatches" id="swatches">
+        <div class="sw active" style="background:#fff9c4" data-color="#fff9c4" onclick="pickColor(this)"></div>
+        <div class="sw" style="background:#c8f7c5" data-color="#c8f7c5" onclick="pickColor(this)"></div>
+        <div class="sw" style="background:#f9d0e0" data-color="#f9d0e0" onclick="pickColor(this)"></div>
+        <div class="sw" style="background:#d5c8f7" data-color="#d5c8f7" onclick="pickColor(this)"></div>
+        <div class="sw" style="background:#c8e8ff" data-color="#c8e8ff" onclick="pickColor(this)"></div>
+        <div class="sw" style="background:#ffd9b0" data-color="#ffd9b0" onclick="pickColor(this)"></div>
+      </div>
+      <textarea class="msg-box" id="msgBox" placeholder="写下你对 MM 的祝福...（最多200字）" maxlength="200"></textarea>
+      <div class="char-count"><span id="charCount">0</span>/200</div>
+      <button class="submit-btn" onclick="submitNote()">贴上去 📌</button>
+    </div>
+
+    <!-- Photo tab -->
+    <div id="photoTab" style="display:none">
+      <div class="upload-area" id="uploadArea" onclick="document.getElementById('photoInput').click()">
+        <div class="upload-icon">📷</div>
+        <div class="upload-text">点击选择照片<br/><span class="upload-hint">支持 JPG、PNG，最大 5MB</span></div>
+        <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="previewPhoto(event)"/>
+      </div>
+      <img id="photoPreview" class="photo-preview" src="" alt="" style="display:none"/>
+      <input class="caption-input" id="captionInput" placeholder="给照片加个说明（选填）" maxlength="80" style="display:none"/>
+      <button class="submit-btn" id="photoSubmitBtn" onclick="submitPhoto()" style="display:none">上传照片 🖼️</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="login-prompt" id="loginPrompt">
+  <span>👆 登录后即可留言和上传照片</span>
+</div>
+
+<footer class="footer">
+  <p>Made with 💙 for MM · Shopee Team</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
